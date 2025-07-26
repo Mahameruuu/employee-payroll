@@ -29,7 +29,9 @@ if(!empty($tahun)){
   $query .= " AND YEAR(tanggal_gaji) = " . intval($tahun);
 }
 
-$query .= " ORDER BY tanggal_gaji DESC";
+// $query .= " ORDER BY tanggal_gaji DESC"; kode lama 
+$query .= " ORDER BY MONTH(tanggal_gaji) ASC, id ASC"; // kode baru 
+
 $data = mysqli_query($conn, $query);
 
 // $data = mysqli_query($conn, "SELECT gaji.*, users.nama AS nama FROM gaji JOIN users ON gaji.user_id = users.id
